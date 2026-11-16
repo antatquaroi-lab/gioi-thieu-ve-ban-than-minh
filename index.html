@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Trang cá nhân của Nguyễn Quốc Ân">
+    <title>Nguyễn Quốc Ân | Trang cá nhân</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0b0e0c;
+            --panel: #141a15;
+            --green: #c6ed83;
+            --white: #f4f5ef;
+            --muted: #a0a99f;
+            --border: #293229;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background: var(--bg);
+            color: var(--white);
+            font-family: 'Be Vietnam Pro', sans-serif;
+            line-height: 1.7;
+        }
+        a {
+            text-decoration: none;
+        }
+        .container {
+            width: min(1100px, 88%);
+            margin: auto;
+        }
+        /* MENU */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 6%;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background: rgba(11, 14, 12, 0.95);
+            backdrop-filter: blur(12px);
+            z-index: 10;
+        }
+        .logo {
+            color: var(--green);
+            font-size: 26px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+        nav ul {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+        nav a {
+            color: var(--white);
+            font-size: 13px;
+            transition: 0.3s;
+        }
+        nav a:hover {
+            color: var(--green);
+        }
+        /* TRANG CHỦ */
+        .hero {
+            min-height: 570px;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            align-items: center;
+            gap: 50px;
+            padding: 75px 0;
+        }
+        .small-title {
+            color: var(--green);
+            font-size: 12px;
+            letter-spacing: 3px;
+            font-weight: 700;
+        }
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 76px);
+            line-height: 1.15;
+            margin: 20px 0;
+        }
+        .hero h1 span {
+            color: var(--green);
+        }
+        .hero p {
+            color: var(--muted);
+            max-width: 490px;
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 28px;
+            padding: 13px 24px;
+            background: var(--green);
+            color: #111;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            background: #d8f5a7;
+        }
+        .hero-image {
+            height: 390px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            overflow: hidden;
+        }
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        /* CÁC PHẦN CHUNG */
+        section {
+            padding: 85px 0;
+            border-top: 1px solid var(--border);
+            scroll-margin-top: 85px;
+        }
+        .section-number {
+            color: var(--green);
+            font-size: 12px;
+            letter-spacing: 3px;
+            margin-bottom: 13px;
+        }
+        h2 {
+            font-size: clamp(27px, 4vw, 42px);
+            line-height: 1.3;
+            margin-bottom: 30px;
+        }
+        /* GIỚI THIỆU */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+        }
+        .info-card {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            padding: 28px;
+            border-radius: 13px;
+        }
+        .info-card p {
+            color: var(--muted);
+            margin: 9px 0;
+        }
+        .info-card strong {
+            color: var(--green);
+        }
+        .quote {
+            color: var(--green);
+            font-size: 23px;
+            font-weight: 700;
+            margin: 15px 0;
+        }
+        /* SỞ THÍCH */
+        .hobby-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+        .hobby-card {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+        .hobby-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--green);
+        }
+        .hobby-card img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            display: block;
+        }
+        .hobby-info {
+            padding: 22px;
+        }
+        .hobby-info span {
+            color: var(--green);
+            font-size: 12px;
+        }
+        .hobby-info h3 {
+            margin: 7px 0;
+            font-size: 21px;
+        }
+        .hobby-info p {
+            color: var(--muted);
+            font-size: 13px;
+        }
+        /* ƯỚC MƠ */
+        .dream-card {
+            background: var(--panel);
+            border: 1px solid #34422f;
+            border-radius: 16px;
+            padding: 40px;
+        }
+        .dream-card h3 {
+            color: var(--green);
+            font-size: clamp(25px, 4vw, 40px);
+            margin: 15px 0;
+            line-height: 1.3;
+        }
+        .dream-card p {
+            color: var(--muted);
+            max-width: 700px;
+        }
+        /* VIDEO */
+        .video-intro {
+            color: var(--muted);
+            margin-bottom: 25px;
+            max-width: 700px;
+        }
+        .video-frame {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: var(--panel);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        .video-frame iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        .video-caption {
+            padding-top: 18px;
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .video-caption span {
+            color: var(--green);
+            font-size: 12px;
+        }
+        /* CHÂN TRANG */
+        footer {
+            padding: 35px 6%;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+            font-size: 12px;
+        }
+        footer span {
+            color: var(--green);
+        }
+        /* ĐIỆN THOẠI */
+        @media (max-width: 700px) {
+            nav {
+                flex-direction: column;
+                gap: 13px;
+            }
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            nav a {
+                font-size: 11px;
+            }
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 55px 0;
+            }
+            .hero-image {
+                height: 330px;
+            }
+            .about-grid,
+            .hobby-grid {
+                grid-template-columns: 1fr;
+            }
+            .hobby-card img {
+                height: 250px;
+            }
+            section {
+                padding: 65px 0;
+            }
+            .dream-card {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- MENU -->
+    <nav>
+        <div class="logo">ÂN.</div>
+        <ul>
+            <li><a href="#gioithieu">Giới thiệu</a></li>
+            <li><a href="#sothich">Sở thích</a></li>
+            <li><a href="#uocmo">Ước mơ</a></li>
+            <li><a href="#video">Video</a></li>
+        </ul>
+    </nav>
+    <main class="container">
+        <!-- TRANG CHỦ -->
+        <div class="hero">
+            <div>
+                <div class="small-title">TRANG CÁ NHÂN CỦA TÔI</div>
+                <h1>
+                    NGUYỄN<br>
+                    <span>QUỐC ÂN.</span>
+                </h1>
+                <p>
+                    Chào mừng bạn đến với trang cá nhân của mình.
+                    Đây là nơi chia sẻ đôi nét về bản thân,
+                    sở thích và những mục tiêu trong tương lai.
+                </p>
+                <a href="#gioithieu" class="btn">
+                    KHÁM PHÁ THÊM ↗
+                </a>
+            </div>
+            <div class="hero-image">
+                <img src="images/anh-ca-nhan.jpg"
+                     alt="Ảnh Nguyễn Quốc Ân">
+            </div>
+        </div>
+        <!-- GIỚI THIỆU -->
+        <section id="gioithieu">
+            <div class="section-number">01 / GIỚI THIỆU</div>
+            <h2>MỘT CHÚT VỀ MÌNH.</h2>
+            <div class="about-grid">
+                <div class="info-card">
+                    <p><strong>Họ và tên:</strong> Nguyễn Quốc Ân</p>
+                    <p><strong>Lớp:</strong> 12A4</p>
+                    <p><strong>Trường:</strong> THPT Hòn Gai</p>
+                    <p><strong>Địa chỉ:</strong> Quảng Ninh</p>
+                    <p><strong>Độ tuổi:</strong> 17 YEARS OLD</p>
+                </div>
+                <div class="info-card">
+                    <p>Quan điểm sống của mình:</p>
+                    <div class="quote">
+                        "Enjoy every moment of life."
+                    </div>
+                    <p>
+                        Luôn cố gắng học hỏi, trải nghiệm
+                        và trân trọng những khoảnh khắc trong cuộc sống.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <!-- SỞ THÍCH -->
+        <section id="sothich">
+            <div class="section-number">02 / SỞ THÍCH</div>
+            <h2>NHỮNG ĐIỀU MÌNH YÊU THÍCH.</h2>
+            <div class="hobby-grid">
+                <div class="hobby-card">
+                    <img src="images/IMG_5439.jpeg"
+                         alt="Đá bóng">
+                    <div class="hobby-info">
+                        <span>01</span>
+                        <h3>Đá bóng</h3>
+                        <p>Tận hưởng những trận bóng cùng bạn bè.</p>
+                    </div>
+                </div>
+                <div class="hobby-card">
+                    <img src="images/IMG_5512.jpeg"
+                         alt="Đánh bi-a">
+                    <div class="hobby-info">
+                        <span>02</span>
+                        <h3>Đánh bi-a</h3>
+                        <p>Một chút giải trí và thử thách khả năng tập trung.</p>
+                    </div>
+                </div>
+                <div class="hobby-card">
+                    <img src="images/IMG_5462.jpeg"
+                         alt="Đi lượn ban đêm">
+                    <div class="hobby-info">
+                        <span>03</span>
+                        <h3>Đi lượn ban đêm</h3>
+                        <p>Tận hưởng không khí và ngắm nhìn phố phường.</p>
+                    </div>
+                </div>
+                <div class="hobby-card">
+                    <img src="images/IMG_4452.jpeg"
+                         alt="Đi chơi cùng bạn bè">
+                    <div class="hobby-info">
+                        <span>04</span>
+                        <h3>Đi chơi cùng bạn bè</h3>
+                        <p>Lưu giữ những khoảnh khắc vui vẻ bên mọi người.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ƯỚC MƠ -->
+        <section id="uocmo">
+            <div class="section-number">03 / MỤC TIÊU TƯƠNG LAI</div>
+            <h2>ƯỚC MƠ CỦA MÌNH.</h2>
+            <div class="dream-card">
+                <div class="small-title">MỤC TIÊU HƯỚNG ĐẾN</div>
+                <h3>HỌC VIỆN CẢNH SÁT NHÂN DÂN</h3>
+                <p>
+                    Đây là ngôi trường mình mong muốn được học tập
+                    và rèn luyện trong tương lai. Mình sẽ cố gắng
+                    từng ngày để tiến gần hơn đến mục tiêu đã đặt ra.
+                </p>
+            </div>
+        </section>
+        <!-- VIDEO -->
+        <section id="video">
+            <div class="section-number">04 / NGÔI TRƯỜNG MƠ ƯỚC</div>
+            <h2>HỌC VIỆN CẢNH SÁT NHÂN DÂN.</h2>
+            <p class="video-intro">
+                Cùng tìm hiểu thêm về ngôi trường mà mình mong muốn
+                được học tập và rèn luyện trong tương lai.
+            </p>
+            <div class="video-frame">
+                <iframe
+                    src="https://www.youtube.com/embed/YPaHcvP19V0"
+                    title="Giới thiệu Học viện Cảnh sát nhân dân"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <div class="video-caption">
+                <h3>Giới thiệu Học viện Cảnh sát nhân dân</h3>
+                <span>ƯỚC MƠ TƯƠNG LAI ↗</span>
+            </div>
+        </section>
+    </main>
+    <!-- CHÂN TRANG -->
+    <footer>
+        <p>© 2026 <span>NGUYỄN QUỐC ÂN</span> | TRANG CÁ NHÂN</p>
+        <p>Enjoy every moment of life.</p>
+    </footer>
+</body>
+</html>
+Đã gửi
+Soạn
+Viết cho An Bùi
